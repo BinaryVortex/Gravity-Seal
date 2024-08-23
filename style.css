@@ -1,0 +1,66 @@
+:root {
+	--_color: hsl(210 17% 98%);
+	--_background: hsl(210 63% 12%);
+	--_shadow: hsl(229 32% 10%);
+	--_accent: hsl(360 83% 62%);
+}
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: system-ui;
+	display: grid;
+	place-items: center;
+	min-block-size: 100svb;
+	color: var(--_color, hsl(0 0% 99%));
+	background: var(--_background, hsl(0 0% 15%));
+	background-image: linear-gradient(135deg, var(--_shadow) 50%, transparent 50%),
+		linear-gradient(-135deg, var(--_shadow) 50%, transparent 50%),
+		linear-gradient(-45deg, var(--_shadow) 50%, transparent 50%),
+		linear-gradient(45deg, var(--_shadow) 50%, transparent 50%);
+	background-size: 2rem 2rem;
+	background-repeat: repeat-x;
+	background-position: 0% 0%, 0% 0%, 0% 100%, 0% 100%;
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+button {
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--_background, hsl(0 0% 15%));
+	background: var(--_color, hsl(0 0% 99%));
+	border: none;
+	border-inline: 0.5rem solid var(--_accent, hsl(0 0% 60%));
+	padding: 0.5rem 0.75rem;
+	border-radius: 1e5px;
+	transition: scale 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button:hover {
+	scale: 1.05;
+	transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+	transition-duration: 0.1s;
+}
+
+button:disabled {
+	scale: 0.85;
+}
+
+button:focus {
+	outline: 2px solid var(--_accent, hsl(0 0% 60%));
+	outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
